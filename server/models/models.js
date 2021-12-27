@@ -48,14 +48,18 @@ Basket.belongsTo(books)
 User.hasOne(Basket)
 Basket.belongsTo(User)
 
+
 // Basket.hasMany(books)
 // books.belongsTo(Basket)
+
+
 
 Type.hasMany(books)
 books.belongsTo(Type)
 
 Brand.hasMany(books)
 books.belongsTo(Brand)
+
 
 
 books.hasMany(booksInfo, {as: 'info'});
@@ -71,8 +75,3 @@ module.exports = {
     Brand,
     booksInfo
 }
-
-
-
-
-
