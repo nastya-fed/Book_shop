@@ -23,11 +23,15 @@ const BooksPage = () => {
     }, [])
 
 const qw=(userId, booksId)=>{
-
-        axios.post(`http://localhost:5000/api/booksd`,
+        console.log(userId);
+        axios.post(`http://localhost:5000/api/booksId`,
             {"basketId": id, "booksId": booksId}
         ).then(()=>{alert("Товар добавлен в корзину")})
 }
+// const rt=(booksId)=>{
+//         console.log(booksId);
+//         axios.delete(`http://localhost:5000/api/books/`+booksId).then(()=>{alert("Удалить")})
+//     }
 
     return (
         <Container className="mt-3">
@@ -55,6 +59,13 @@ const qw=(userId, booksId)=>{
                         >
                             Добавить в корзину
                         </Button>
+                        {/*<Button*/}
+                        {/*    variant={"outline-dark"}*/}
+                        {/*    onClick={()=>{rt( books.id)}}*/}
+
+                        {/*>*/}
+                        {/*    Удалить*/}
+                        {/*</Button>*/}
 
                     </Card>
                 </Col>

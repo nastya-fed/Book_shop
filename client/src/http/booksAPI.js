@@ -1,5 +1,6 @@
 import {$authHost, $host} from "./index";
 import jwt_decode from "jwt-decode";
+import axios from "axios";
 
 export const createType = async (type) => {
     const {data} = await $authHost.post('api/type', type)
@@ -24,10 +25,19 @@ export const fetchBrands = async () => {
 
 
 export const createbooks = async (books) => {
-    const {data} = await $authHost.post('api/books', books)
+    const {data} = await $authHost.post('api/books', books)  
     return data
 }
 
+// export const DeleteBookById = (id) => {
+//     axios.delete(`http://localhost:5000/books`+id, {
+//             }).then((response) => {
+//         if (response.data.error){
+//             alert(response.data.error);
+//         }
+//         else alert(response.data);
+//     });
+// }
 
 export const fetchbookss = async (typeId, brandId, page, limit= 5) => {
     const {data} = await $host.get('api/books', {params: {

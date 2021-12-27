@@ -5,6 +5,8 @@ const {QueryTypes} = require("sequelize");
 
 class BasketdevController {
     async create(req, res) {
+        //const user_id = req.query.userId;
+      //  console.log(user_id);
         //const {basketId, booksId} = req.body
         let {basketId, booksId} = req.body
         const BasketDev = await Basketbooks.create({basketId, booksId})
@@ -13,7 +15,7 @@ class BasketdevController {
 
     }
     async getAll(req, res) {
-        const user_id = req.query.userId;
+        const user_id = req.query.userId;   
         // let {user_id_from_frontend} = req.query.userId
         // console.log(user_id_from_frontend)
         const basket_object = await Basket.findOne({where:{userId: user_id}});

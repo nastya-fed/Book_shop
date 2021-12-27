@@ -8,7 +8,7 @@ import {Button} from "react-bootstrap";
 import {observer} from "mobx-react-lite";
 import Container from "react-bootstrap/Container";
 import {useHistory} from 'react-router-dom'
-import booksItem from "./BooksItem";
+
 const NavBar = observer(() => {
     const {user} = useContext(Context)
     const history = useHistory()
@@ -17,8 +17,6 @@ const NavBar = observer(() => {
         user.setUser({})
         user.setIsAuth(false)
     }
-
-
 
     return (
         <Navbar bg="dark" variant="dark">
@@ -30,6 +28,7 @@ const NavBar = observer(() => {
                             variant={"outline-light"}
 
                             onClick={() => history.push(BASKET_ROUTE)}
+
                         >
                             Корзина
                         </Button>
@@ -37,6 +36,7 @@ const NavBar = observer(() => {
                         <Button
                             variant={"outline-light"}
                             onClick={() => history.push(ADMIN_ROUTE)}
+                            className="ml-2"
                         >
                             Админ панель
                         </Button>

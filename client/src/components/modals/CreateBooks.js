@@ -56,7 +56,7 @@ const CreateBook = observer(({show, onHide}) => {
             <Modal.Body>
                 <Form>
                     <Dropdown className="mt-2 mb-2">
-                        <Dropdown.Toggle>{books.selectedType.name || "Выберите тип"}</Dropdown.Toggle>
+                        <Dropdown.Toggle>{books.selectedType.name || "Выберите жанр"}</Dropdown.Toggle>
                         <Dropdown.Menu>
                             {books.types.map(type =>
                                 <Dropdown.Item
@@ -69,7 +69,7 @@ const CreateBook = observer(({show, onHide}) => {
                         </Dropdown.Menu>
                     </Dropdown>
                     <Dropdown className="mt-2 mb-2">
-                        <Dropdown.Toggle>{books.selectedBrand.name || "Выберите тип"}</Dropdown.Toggle>
+                        <Dropdown.Toggle>{books.selectedBrand.name || "Выберите издательство"}</Dropdown.Toggle>
                         <Dropdown.Menu>
                             {books.brands.map(brand =>
                                 <Dropdown.Item
