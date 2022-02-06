@@ -1,11 +1,10 @@
 import React from 'react';
 import {Card, Col} from "react-bootstrap";
 import Image from "react-bootstrap/Image";
-import star from '../assets/star.png'
 import {useHistory} from "react-router-dom"
 import {books_ROUTE} from "../utils/consts";
 
-const BooksItem = ({books,user}) => {
+const BooksItem = ({books}) => {
     const history = useHistory()
     return (
         console.log(books.id),

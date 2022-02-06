@@ -10,6 +10,7 @@ ReactDOM.render(
     <Context.Provider value={{
         user: new UserStore(),
         books: new booksStore(),
+
     }}>
         <App />
     </Context.Provider>,

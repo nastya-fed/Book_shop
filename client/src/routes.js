@@ -22,6 +22,11 @@ export const publicRoutes = [
         Component: Shop
     },
     {
+        path: BASKET_ROUTE,
+        Component: Basket
+    },
+
+    {
         path: LOGIN_ROUTE,
         Component: Auth
     },

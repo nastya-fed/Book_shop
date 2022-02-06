@@ -18,6 +18,7 @@ export const createBrand = async (brand) => {
 }
 
 
+
 export const fetchBrands = async () => {
     const {data} = await $host.get('api/brand', )
     return data
@@ -43,6 +44,11 @@ export const fetchbookss = async (typeId, brandId, page, limit= 5) => {
     const {data} = await $host.get('api/books', {params: {
             typeId, brandId, page, limit
         }})
+    return data
+}
+
+export const fetchBasket = async (user) => {
+    const {data} = await $host.get('api/user')
     return data
 }
 

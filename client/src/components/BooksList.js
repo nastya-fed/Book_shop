@@ -10,7 +10,8 @@ const BooksList = observer(() => {
     return (
         <Row className="d-flex">
             {books.bookss.map(books =>
-                <BooksItem key={books.id} books={books}/>
+                //console.log(books.name)
+               <BooksItem key={books.id} books={books}/>
             )}
         </Row>
     );

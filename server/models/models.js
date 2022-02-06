@@ -45,7 +45,7 @@ const booksInfo = sequelize.define('books_info', {
 books.hasMany(Basket)
 Basket.belongsTo(books)
 
-User.hasOne(Basket)
+User.hasMany(Basket)
 Basket.belongsTo(User)
 
 

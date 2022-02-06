@@ -49,6 +49,7 @@ export default class booksStore {
     get bookss() {
         return this._bookss
     }
+
     get selectedType() {
         return this._selectedType
     }
