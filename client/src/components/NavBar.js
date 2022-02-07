@@ -8,14 +8,18 @@ import {Button} from "react-bootstrap";
 import {observer} from "mobx-react-lite";
 import Container from "react-bootstrap/Container";
 import {useHistory} from 'react-router-dom'
+import {userContext} from "../App"
 
 const NavBar = observer(() => {
     const {user} = useContext(Context)
+    const {userAuth, setUserAuth} = useContext(userContext)
     const history = useHistory()
 
     const logOut = () => {
         user.setUser({})
+        setUserAuth({id: 0, isAuth: false})
         user.setIsAuth(false)
+        localStorage.setItem('aidi', 0)
     }
 
     return (
