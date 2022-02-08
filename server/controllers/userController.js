@@ -26,9 +26,10 @@ class UserController {
         const hashPassword = await bcrypt.hash(password, 5)
         const user = await User.create({email, role, password: hashPassword})
         const idd=user.id
+        const rol=user.role;
         const token = generateJwt(user.id, user.email, user.role)
 
-        return res.json({idd,token})
+        return res.json({idd,rol,token})
     }
 
     async login(req, res, next) {
@@ -42,14 +43,16 @@ class UserController {
             return next(ApiError.internal('Указан неверный пароль'))
         }
         const idd=user.id
+        const rol=user.role;
         const token = generateJwt(user.id, user.email, user.role)
-        return res.json({idd,token})
+        return res.json({idd,rol,token})
     }
 
 
 
     async check(req, res, next) {
         const idd=req.user.id
+
         const token = generateJwt(req.user.id, req.user.email, req.user.role)
         return res.json({idd,token})
     }

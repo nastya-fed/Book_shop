@@ -13,12 +13,16 @@ const App = observer(() => {
     const {user} = useContext(Context)
     const [loading, setLoading] = useState(false)
     const newUserAuth= localStorage.getItem('aidi')
+    const rol=localStorage.getItem('role')
     let k=false;
+
     if (Number(newUserAuth)!==0){ k=true}
     else{console.log(Number(newUserAuth))
        k=false}
+
     const [userAuth, setUserAuth] = useState({
         id : Number(newUserAuth),
+        rol:rol,
          isAuth: k
     });
 

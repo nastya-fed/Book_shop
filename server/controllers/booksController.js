@@ -50,16 +50,16 @@ class booksController {
         let offset = page * limit - limit
         let bookss;
         if (!brandId && !typeId) {
-            bookss = await books.findAndCountAll({limit, offset})
+            bookss = await books.findAndCountAll({})
         }
         if (brandId && !typeId) {
-            bookss = await books.findAndCountAll({where: {brandId}, limit, offset})
+            bookss = await books.findAndCountAll({where: {brandId}})
         }
         if (!brandId && typeId) {
-            bookss = await books.findAndCountAll({where: {typeId}, limit, offset})
+            bookss = await books.findAndCountAll({where: {typeId}})
         }
         if (brandId && typeId) {
-            bookss = await books.findAndCountAll({where: {typeId, brandId}, limit, offset})
+            bookss = await books.findAndCountAll({where: {typeId, brandId}})
         }
         return res.json(bookss)
     }

@@ -28,6 +28,23 @@ const NavBar = observer(() => {
                 <NavLink style={{color:'white'}} to={SHOP_ROUTE}>Книжный магазин</NavLink>
                 {user.isAuth ?
                     <Nav className="ml-auto" style={{color: 'white'}}>
+                        {userAuth.rol === 'ADMIN' ?
+                            <Button
+                                variant={"outline-light"}
+                                onClick={() => history.push(ADMIN_ROUTE)}
+                                className="ml-2"
+                            >
+                                Админ панель
+
+                            </Button>
+                            :
+                                <h5 className="mr-5">
+
+                                    <div>
+                                    Здравствуйте!
+                                    </div>
+                                </h5>
+                        }
                         <Button
                             variant={"outline-light"}
 
@@ -35,14 +52,6 @@ const NavBar = observer(() => {
 
                         >
                             Корзина
-                        </Button>
-
-                        <Button
-                            variant={"outline-light"}
-                            onClick={() => history.push(ADMIN_ROUTE)}
-                            className="ml-2"
-                        >
-                            Админ панель
                         </Button>
                         <Button
                             variant={"outline-light"}
