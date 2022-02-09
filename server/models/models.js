@@ -18,6 +18,7 @@ const books = sequelize.define('books', {
     name: {type: DataTypes.STRING, unique: true, allowNull: false},
     price: {type: DataTypes.INTEGER, allowNull: false},
     img: {type: DataTypes.STRING, allowNull: false},
+
 })
 
 const Type = sequelize.define('type', {
@@ -37,10 +38,10 @@ const booksInfo = sequelize.define('books_info', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     title: {type: DataTypes.STRING, allowNull: false},
     description: {type: DataTypes.STRING, allowNull: false},
-})
+}) 
 
-books.hasMany(Basket)
-Basket.belongsTo(books)
+books.hasMany(Basket, {onDelete: 'cascade'} )
+Basket.belongsTo(books,  {onDelete: 'cascade'})
 
 User.hasMany(Basket)
 Basket.belongsTo(User)
@@ -59,8 +60,8 @@ books.belongsTo(Brand)
 
 
 
-books.hasMany(booksInfo, {as: 'info'});
-booksInfo.belongsTo(books)
+books.hasMany(booksInfo, {as: 'info',  onDelete: 'cascade'});
+booksInfo.belongsTo(books, {onDelete: 'cascade'})
 
 
 
