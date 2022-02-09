@@ -24,11 +24,13 @@ const Auth = observer(() => {
             let response;
             if (isLogin) {
                 response = await login(email, password);
-                setUserAuth({id: response.id, isAuth: true})
+                console.log(response);
+                setUserAuth({id: response.id, isAuth: true,rol:response.role})
                 user.setIsAuth(true)
             } else {
                 response = await registration(email, password);
-                setUserAuth({id: response.id, isAuth: true})
+                console.log(response);
+                setUserAuth({id: response.id, isAuth: true,rol:response.role})
                 user.setIsAuth(true)
             }
             // user.setUser(response.data);

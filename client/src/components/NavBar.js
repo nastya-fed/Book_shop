@@ -28,7 +28,7 @@ const NavBar = observer(() => {
                 <NavLink style={{color:'white'}} to={SHOP_ROUTE}>Книжный магазин</NavLink>
                 {user.isAuth ?
                     <Nav className="ml-auto" style={{color: 'white'}}>
-                        {userAuth.rol = 'ADMIN' ?
+                        {userAuth.rol === 'ADMIN' ?
                             <Button
                                 variant={"outline-light"}
                                 onClick={() => history.push(ADMIN_ROUTE)}
@@ -38,12 +38,12 @@ const NavBar = observer(() => {
 
                             </Button>
                             :
-                                <h5 className="mr-5">
+                            <h5 className="mr-5">
 
-                                    <div>
+                                <div>
                                     Здравствуйте!
-                                    </div>
-                                </h5>
+                                </div>
+                            </h5>
                         }
                         <Button
                             variant={"outline-light"}
