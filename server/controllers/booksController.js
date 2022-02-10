@@ -114,15 +114,6 @@ class booksController {
 
         }
 
-
-            // req.query('UPDATE books SET ? WHERE id = ?', [req.body, id],
-            //     (error, res) => {
-            //         if (error) throw error;
-            //
-            //         res.send('User updated successfully.');
-            //     })
-
-
     };
 }
 

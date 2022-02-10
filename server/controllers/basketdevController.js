@@ -53,8 +53,8 @@ class BasketdevController {
                 {
                     where:{userId },
 
-                    attributes: ['bookId', [fn('COUNT', col('bookId')), 'conn']],exclude:["bookId"],
-                    group: ['bookId','book.id'],
+                    attributes: ['bookId','count' ],exclude:["bookId"],
+
                     include: {model: books, as: 'book'}
 
             })
@@ -73,7 +73,40 @@ class BasketdevController {
         return res.json(BasketD)
     }
 
-    async delete(req, res) {
+    async getOne(req, res) {
+        const {bookId,userId} = req.query
+
+        const basket_object = await Basket.findOne({where: {userId,bookId}});
+
+
+        return res.json(basket_object)
+    }
+
+    async put(req, res) {
+        try{
+            const {bookId,userId} = req.query
+            const basket =await Basket.findOne(
+                {
+                    where: {userId,bookId}
+                })
+            await basket.update({
+                count: req.body.count,
+
+            })
+            await basket.save()
+            res.json(basket)
+
+        }catch (e) {
+            res.status(500).json(e)
+
+        }
+
+    };
+
+
+
+
+        async delete(req, res) {
         try {
             let {userId, bookId} = req.body
 
