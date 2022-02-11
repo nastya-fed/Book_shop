@@ -1,0 +1,104 @@
+<ISSPECS>
+   <DESCRIPTION>
+      <TITLE>Books shop</TITLE>
+      <SUBJ>Книжный магазин</SUBJ>
+   </DESCRIPTION>
+   <DATA>
+      <ENTITY ent_id="users">
+         <PROPERTY>id</PROPERTY>
+         <PROPERTY>email</PROPERTY>
+         <PROPERTY>password</PROPERTY>
+         <PROPERTY>role</PROPERTY>
+      </ENTITY>
+      <ENTITY ent_id="types">
+         <PROPERTY>id</PROPERTY>
+         <PROPERTY>name</PROPERTY>
+      </ENTITY>
+      <ENTITY ent_id="books">
+         <PROPERTY>id</PROPERTY>
+         <PROPERTY>name</PROPERTY>
+         <PROPERTY>price</PROPERTY>
+         <PROPERTY>img</PROPERTY>
+         <PROPERTY>typeId</PROPERTY>
+         <PROPERTY>brandId</PROPERTY>
+      </ENTITY>
+      <ENTITY ent_id="books_infos">
+         <PROPERTY>id</PROPERTY>
+         <PROPERTY>title</PROPERTY>
+         <PROPERTY>description</PROPERTY>
+         <PROPERTY>bookId</PROPERTY>
+      </ENTITY>
+      <ENTITY ent_id="brands">
+         <PROPERTY>id</PROPERTY>
+         <PROPERTY>name</PROPERTY>
+      </ENTITY>
+      <ENTITY ent_id="baskets">
+         <PROPERTY>id</PROPERTY>
+         <PROPERTY>userId</PROPERTY>
+         <PROPERTY>bookId</PROPERTY>
+         <PROPERTY>count</PROPERTY>
+      </ENTITY>
+      <RELATIONSHIPS ent_ids = "users baskets">
+         <PROPERTY>ONE TO MANY</PROPERTY>
+      </RELATIONSHIPS>
+      <RELATIONSHIPS ent_ids = "books baskets">
+         <PROPERTY>ONE TO MANY</PROPERTY>
+      </RELATIONSHIPS>
+      <RELATIONSHIPS ent_ids = "books types">
+         <PROPERTY>ONE TO MANY</PROPERTY>
+      </RELATIONSHIPS>
+      <RELATIONSHIPS ent_ids = "books brands">
+         <PROPERTY>ONE TO MANY</PROPERTY>
+      </RELATIONSHIPS>
+      <RELATIONSHIPS ent_ids = "books books_infos">
+         <PROPERTY>ONE TO MANY</PROPERTY>
+      </RELATIONSHIPS>
+      <CONSTRAINT> Ограничение NOT NULL повсеместно</CONSTRAINT>
+   </DATA>
+   <ROLES>
+      <ROLE>
+         <TITLE>VISITER</TITLE>
+         <RESPOSIBILITY>Регистрация на сайте</RESPOSIBILITY>
+         <TOTALUSERS>NOT LIMITED</TOTALUSERS>
+      </ROLE>
+      <ROLE>
+         <TITLE>USER</TITLE>
+         <RESPOSIBILITY>Просмотр карточек с книгами на главной странице</RESPOSIBILITY>
+         <RESPOSIBILITY>Фильтрация карточек по жанру/издательству</RESPOSIBILITY>
+         <RESPOSIBILITY>Просмотр страницы карточки</RESPOSIBILITY>
+         <RESPOSIBILITY>Добавление карточки в корзину</RESPOSIBILITY>
+         <RESPOSIBILITY>Просмотр корзины</RESPOSIBILITY>
+         <RESPOSIBILITY>Увеличение, уменьшение и удаление книг в корзине</RESPOSIBILITY>
+         <TOTALUSERS>NOT LIMITED</TOTALUSERS>
+      </ROLE>
+      <ROLE>
+         <TITLE>ADMIN</TITLE>
+         <RESPOSIBILITY>Просмотр карточек с книгами на главной странице</RESPOSIBILITY>
+         <RESPOSIBILITY>Сортировка карточек по жанру/издательству</RESPOSIBILITY>
+         <RESPOSIBILITY>Просмотр страницы карточки</RESPOSIBILITY>
+         <RESPOSIBILITY>Добавление карточки в корзину</RESPOSIBILITY>
+         <RESPOSIBILITY>Просмотр корзины</RESPOSIBILITY>
+         <RESPOSIBILITY>Увеличение, уменьшение и удаление книг в корзине</RESPOSIBILITY>
+         <RESPOSIBILITY>Создание жанра</RESPOSIBILITY>
+         <RESPOSIBILITY>Создание издательсва</RESPOSIBILITY>
+         <RESPOSIBILITY>Создание карточек книг на главной странице</RESPOSIBILITY>
+         <RESPOSIBILITY>Удаление карточек с книгами</RESPOSIBILITY>
+         <TOTALUSERS>1</TOTALUSERS>
+      </ROLE>
+   </ROLES>
+   <TECHSPEC>
+      <TYPE>Web-development</TYPE>
+      <DEVTOOLS>
+         <DEV>JavaScript</DEV>
+         <DEV>NodeJS</DEV>
+         <DEV>ReactJS</DEV>
+         <DEV>Express</DEV>
+      </DEVTOOLS>
+      <DBMS>
+         <TITLE>PostgreSQL</TITLE>
+         <VERSION>14.1</VERSION>
+         <REASONING>Наличие документации и материалов в открытом доступе.</REASONING>
+         <REASONING>Более удобная работа с документацией, что позволяет быстрее и понятнее освоить СУБД.Работа с СУБД показала, что Postgres делает больше проверок, дает меньше возможности ошибиться.</REASONING>
+      </DBMS>
+   </TECHSPEC>
+</ISSPECS>
