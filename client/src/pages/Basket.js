@@ -15,6 +15,9 @@ const Basket = () => {
     const [basketItems, setBasketItems] = useState([]);
     const [bItems, setBItems] = useState([]);
     const arr = []; const arr2 = [];
+    const [coun, setCoun] = useState(1)
+    const [mcoun, setMcoun] = useState(1)
+
     const [orderVisible, setOrderVisible] = useState(false)
 
 
@@ -49,13 +52,26 @@ const Basket = () => {
         await setIsLoading(true);
     }
     const addBook = (booksId, userId, counter) => {
+        setCoun(counter);
+
+        console.log(coun);
         axios.put(`http://localhost:5000/api/booksid/?userId=${userId}&bookId=${booksId}`,
-            { "count": counter + 1 })
+            {"count": counter + coun})
+                setCoun(coun + 1)
+
 
     }
     const delBook = (booksId, userId, counter) => {
+        if (counter!==1){
+        setMcoun(counter);
+
+        console.log(mcoun);
         axios.put(`http://localhost:5000/api/booksid/?userId=${userId}&bookId=${booksId}`,
-            { "count": counter - 1 })
+            { "count": counter - mcoun })
+        setMcoun(mcoun + 1)}
+        else {
+            delet(booksId,userId)
+        }
     }
 
     useEffect(ShowBasketItems, [])

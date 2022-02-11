@@ -9,7 +9,7 @@ router.post('/', checkRole('ADMIN'), booksController.booksid)
 router.get('/', booksController.getAll)
 router.get('/:id', booksController.getOne)
 
-router.delete('/:id',checkRole('ADMIN'), booksController.delete)
+router.delete('/:id', booksController.delete)
 
 router.put('/:bookId', checkRole('ADMIN'), booksController.put)
 

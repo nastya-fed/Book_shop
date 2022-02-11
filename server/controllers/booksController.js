@@ -18,7 +18,7 @@ class booksController {
                     booksInfo.create({
                         title: i.title,
                         description: i.description,
-                        booksId: book.id
+                        bookId: book.id
                     })
                 )
             }

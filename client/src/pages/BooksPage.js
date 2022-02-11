@@ -16,6 +16,7 @@ const BooksPage = () => {
 
     const [typeVisible, setTypeVisible] = useState(false)
     const { id } = useParams()
+    const [isLoading, setIsLoading] = useState(true);
 
 
     useEffect(() => {
@@ -45,6 +46,14 @@ const BooksPage = () => {
             .catch((e) => {
                 alert(e)
             })
+    }
+
+    const del = async (book_Id) => {
+
+        await axios.delete(`http://localhost:5000/api/books/${book_Id}`)
+       console.log(book_Id)
+        await setIsLoading(true);
+
     }
 
     let a = books.id;
@@ -93,6 +102,24 @@ const BooksPage = () => {
                     </Row>
                 )}
             </Row>
+
+
+
+           {userAuth.rol === 'ADMIN' ?
+            <Row className="d-flex flex-column m-3">
+                <Button
+                    variant={"outline-dark"}
+
+                    onClick={() => { del(a,userAuth.rol) }}
+
+                >
+                   Удалить
+                </Button>
+            </Row>:
+               <h5 className="mr-5">
+
+
+               </h5>}
 
         </Container>
     );
